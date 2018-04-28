@@ -1064,19 +1064,19 @@ bool SgUctSearch::PlayInTree(SgUctThreadState& state, bool& isTerminal)
             SgUctProvenType provenType = SG_NOT_PROVEN;
 
             
-            if (current == root && current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
-                /** flag indicating whther we need to expand children */
-                state.m_needPrioProbability = true;
-            } else {
-                state.m_needPrioProbability = false;
-            }
-
-            // if (current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
+            // if (current == root && current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
             //     /** flag indicating whther we need to expand children */
             //     state.m_needPrioProbability = true;
             // } else {
             //     state.m_needPrioProbability = false;
             // }
+
+            if (current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
+                /** flag indicating whther we need to expand children */
+                state.m_needPrioProbability = true;
+            } else {
+                state.m_needPrioProbability = false;
+            }
 
 
 
@@ -1116,24 +1116,24 @@ bool SgUctSearch::PlayInTree(SgUctThreadState& state, bool& isTerminal)
             // if ((current == root && !current->m_childPrioProbabilityComputed)  || 
             //     (current->MoveCount() > 300 && !current->m_childPrioProbabilityComputed)){
 
-            if ((current == root && !current->m_childPrioProbabilityComputed)){
-                // current root do not have prioProbability, need to get it and apply them to children
+            // if ((current == root && !current->m_childPrioProbabilityComputed)){
+            //     // current root do not have prioProbability, need to get it and apply them to children
                 
                 
-                SgArray<SgUctValue, SG_MAX_MOVE_VALUE> array;
-                SgUctValue value;
-                state.GetPrioProbability(array, value);
+            //     SgArray<SgUctValue, SG_MAX_MOVE_VALUE> array;
+            //     SgUctValue value;
+            //     state.GetPrioProbability(array, value);
 
-                    // SgDebug() << "after getting prioprobability. \n";
+            //         // SgDebug() << "after getting prioprobability. \n";
 
-                    // SgPoint samplePoint = SgPointUtil::Pt(4,4);
+            //         // SgPoint samplePoint = SgPointUtil::Pt(4,4);
 
-                    //PrintBoard(state.)
+            //         //PrintBoard(state.)
 
-                    // SgDebug() << " sample data:" << array[samplePoint] << std::endl;
+            //         // SgDebug() << " sample data:" << array[samplePoint] << std::endl;
 
-                m_tree.ApplyPrioProbabilityToChildren(0, *current, array, value, state.m_threadId);
-            }
+            //     m_tree.ApplyPrioProbabilityToChildren(0, *current, array, value, state.m_threadId);
+            // }
 
             if (state.m_threadId < m_maxKnowledgeThreads 
                     && NeedToComputeKnowledge(current))
@@ -1601,11 +1601,11 @@ const SgUctNode& SgUctSearch::SelectChild(int& randomizeCounter,
     const SgUctNode* bestChild = 0;
     SgUctValue bestUpperBound = 0;
     
-    // const SgUctValue predictorWeight = 
-    // 	m_additiveKnowledge.PredictorWeight(posCount);
-
     const SgUctValue predictorWeight = 
-    	m_additiveKnowledge.PredictorWeight(prioPosCount);
+    	m_additiveKnowledge.PredictorWeight(posCount);
+
+    // const SgUctValue predictorWeight = 
+    // 	m_additiveKnowledge.PredictorWeight(prioPosCount);
 
 
     const SgUctValue epsilon = SgUctValue(1e-7);
