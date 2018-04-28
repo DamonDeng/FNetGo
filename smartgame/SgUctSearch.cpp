@@ -1601,11 +1601,11 @@ const SgUctNode& SgUctSearch::SelectChild(int& randomizeCounter,
     const SgUctNode* bestChild = 0;
     SgUctValue bestUpperBound = 0;
     
-    const SgUctValue predictorWeight = 
-    	m_additiveKnowledge.PredictorWeight(posCount);
-
     // const SgUctValue predictorWeight = 
-    // 	m_additiveKnowledge.PredictorWeight(prioPosCount);
+    // 	m_additiveKnowledge.PredictorWeight(posCount);
+
+    const SgUctValue predictorWeight = 
+    	m_additiveKnowledge.PredictorWeight(prioPosCount);
 
 
     const SgUctValue epsilon = SgUctValue(1e-7);
