@@ -1323,28 +1323,28 @@ SgUctValue SgUctSearch::Search(SgUctValue maxGames, double maxTime,
 
             point = SgPointUtil::Pt(col, row);
 
-            if (childProbability[point] > 0){
-                SgDebug() << fixed << setprecision(3) << childProbability[point] << " ";
+            // if (childProbability[point] > 0){
+            //     SgDebug() << fixed << setprecision(3) << childProbability[point] << " ";
+            // } else {
+            //     std::stringstream ss;
+            //     std::string outputString;
+                        
+            //     ss<< "_______0 ";
+            //     ss>>outputString;
+
+            //     SgDebug() << outputString.substr(outputString.length()-6);
+            // }
+
+            if (childPrioProbability[point] > 0.0009){
+                SgDebug() << fixed << setprecision(2) << childPrioProbability[point]*10 << "|";
             } else {
                 std::stringstream ss;
                 std::string outputString;
                         
-                ss<< "_______0 ";
+                ss<< "________|";
                 ss>>outputString;
 
-                SgDebug() << outputString.substr(outputString.length()-6);
-            }
-
-            if (childPrioProbability[point] > 0){
-                SgDebug() << fixed << setprecision(3) << childPrioProbability[point] << "|";
-            } else {
-                std::stringstream ss;
-                std::string outputString;
-                        
-                ss<< "_______0|";
-                ss>>outputString;
-
-                SgDebug() << outputString.substr(outputString.length()-6);
+                SgDebug() << outputString.substr(outputString.length()-5);
             }
 
 
@@ -1354,98 +1354,98 @@ SgUctValue SgUctSearch::Search(SgUctValue maxGames, double maxTime,
 
         SgDebug() << "\n";
 
-        for (int col = 1; col <= boardSize; col++){
+        // for (int col = 1; col <= boardSize; col++){
 
-            point = SgPointUtil::Pt(col, row);
-
-            
-            
-            SgDebug() << fixed << setprecision(3) << childMean[point] << " "; 
-
-            //debug output place holder
-
-            std::stringstream ss1;
-            std::string outputString1;
-                    
-            ss1<< "________|";
-            ss1>>outputString1;
-
-            SgDebug() << outputString1.substr(outputString1.length()-6);
-            
-
-        }
-
-        SgDebug() << "\n";
-
-        for (int col = 1; col <= boardSize; col++){
-
-            point = SgPointUtil::Pt(col, row);
-            int countValue = childMoveCount[point];
-
-            std::stringstream ss;
-            std::string outputString;
-                    
-            ss<< "________" << countValue << " ";
-            ss>>outputString;
-
-            SgDebug() << outputString.substr(outputString.length()-6);
-
-            //debug output place holder
-
-            std::stringstream ss1;
-            std::string outputString1;
-                    
-            ss1<< "________|";
-            ss1>>outputString1;
-
-            SgDebug() << outputString1.substr(outputString1.length()-6);
-
-        }
-
-        SgDebug() << "\n";
-
-        for (int col = 1; col <= boardSize; col++){
-
-            point = SgPointUtil::Pt(col, row);
-            int countValue = childPosCount[point];
-
-            std::stringstream ss;
-            std::string outputString;
-                    
-            ss<< "________" << countValue << " ";
-            ss>>outputString;
-
-            SgDebug() << outputString.substr(outputString.length()-6);
-
-            //debug output place holder
-
-            std::stringstream ss1;
-            std::string outputString1;
-                    
-            ss1<< "________|";
-            ss1>>outputString1;
-
-            SgDebug() << outputString1.substr(outputString1.length()-6);
+        //     point = SgPointUtil::Pt(col, row);
 
             
-            // //debug output place holder
+            
+        //     SgDebug() << fixed << setprecision(3) << childMean[point] << " "; 
 
-            // int prioCountValue = childPrioPosCount[point];
+        //     //debug output place holder
 
-            // std::stringstream ss1;
-            // std::string outputString1;
+        //     std::stringstream ss1;
+        //     std::string outputString1;
                     
-            // ss<< "________" << prioCountValue << "|";
-            // ss1>>outputString1;
+        //     ss1<< "________|";
+        //     ss1>>outputString1;
 
-            // SgDebug() << outputString1.substr(outputString1.length()-6);
+        //     SgDebug() << outputString1.substr(outputString1.length()-6);
+            
 
-        }
+        // }
+
+        // SgDebug() << "\n";
+
+        // for (int col = 1; col <= boardSize; col++){
+
+        //     point = SgPointUtil::Pt(col, row);
+        //     int countValue = childMoveCount[point];
+
+        //     std::stringstream ss;
+        //     std::string outputString;
+                    
+        //     ss<< "________" << countValue << " ";
+        //     ss>>outputString;
+
+        //     SgDebug() << outputString.substr(outputString.length()-6);
+
+        //     //debug output place holder
+
+        //     std::stringstream ss1;
+        //     std::string outputString1;
+                    
+        //     ss1<< "________|";
+        //     ss1>>outputString1;
+
+        //     SgDebug() << outputString1.substr(outputString1.length()-6);
+
+        // }
+
+        // SgDebug() << "\n";
+
+        // for (int col = 1; col <= boardSize; col++){
+
+        //     point = SgPointUtil::Pt(col, row);
+        //     int countValue = childPosCount[point];
+
+        //     std::stringstream ss;
+        //     std::string outputString;
+                    
+        //     ss<< "________" << countValue << " ";
+        //     ss>>outputString;
+
+        //     SgDebug() << outputString.substr(outputString.length()-6);
+
+        //     //debug output place holder
+
+        //     std::stringstream ss1;
+        //     std::string outputString1;
+                    
+        //     ss1<< "________|";
+        //     ss1>>outputString1;
+
+        //     SgDebug() << outputString1.substr(outputString1.length()-6);
+
+            
+        //     // //debug output place holder
+
+        //     // int prioCountValue = childPrioPosCount[point];
+
+        //     // std::stringstream ss1;
+        //     // std::string outputString1;
+                    
+        //     // ss<< "________" << prioCountValue << "|";
+        //     // ss1>>outputString1;
+
+        //     // SgDebug() << outputString1.substr(outputString1.length()-6);
+
+        // }
 
 
-        SgDebug() << "\n";
-        // SgDebug() << "-------------------------------------------------------------------------------------------------------------\n";
-        SgDebug() << "-\n";
+        // SgDebug() << "\n";
+        // // SgDebug() << "-------------------------------------------------------------------------------------------------------------\n";
+        // SgDebug() << "-\n";
     }
 
     SgDebug() << "\n";

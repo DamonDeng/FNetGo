@@ -45,7 +45,7 @@ void
 GoUctAdditiveKnowledgeCNN::ProcessPosition(std::vector<SgUctMoveInfo>& moves, const GoBoard& currentBoard)
 {
 
-    SgDebug() << "Trying to apply cnn additiveKnowledge. \n";
+    // SgDebug() << "Trying to apply cnn additiveKnowledge. \n";
 
     // const GoBoard& currentBoard = Board();
 
