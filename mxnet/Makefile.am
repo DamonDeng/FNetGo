@@ -10,7 +10,7 @@ MXNetModel.h
 
 lib_mxnetmodel_a_CPPFLAGS = \
 $(BOOST_CPPFLAGS) \
--I@top_srcdir@/smartgame \ 
+-I@top_srcdir@/smartgame \
 -I@top_srcdir@/include \
 -I@top_srcdir@/go \
 -I@top_srcdir@/gouct \
