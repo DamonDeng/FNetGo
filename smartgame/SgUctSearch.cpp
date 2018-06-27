@@ -1064,19 +1064,19 @@ bool SgUctSearch::PlayInTree(SgUctThreadState& state, bool& isTerminal)
             SgUctProvenType provenType = SG_NOT_PROVEN;
 
             
-            // if (current == root && current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
-            //     /** flag indicating whther we need to expand children */
-            //     state.m_needPrioProbability = true;
-            // } else {
-            //     state.m_needPrioProbability = false;
-            // }
-
-            if (current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
+            if (current == root && current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
                 /** flag indicating whther we need to expand children */
                 state.m_needPrioProbability = true;
             } else {
                 state.m_needPrioProbability = false;
             }
+
+            // if (current->MoveCount() >= m_expandThreshold && !current->m_childPrioProbabilityComputed){
+            //     /** flag indicating whther we need to expand children */
+            //     state.m_needPrioProbability = true;
+            // } else {
+            //     state.m_needPrioProbability = false;
+            // }
 
 
 
