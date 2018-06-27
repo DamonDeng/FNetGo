@@ -58,7 +58,7 @@ void FuegoMainEngine::CmdLicense(GtpCommand& cmd)
 
 void FuegoMainEngine::CmdName(GtpCommand& cmd)
 {
-    cmd << "CNN_MTCS_Go";
+    cmd << "CNN_MTCS_Go2";
 }
 
 /** Return Fuego version.

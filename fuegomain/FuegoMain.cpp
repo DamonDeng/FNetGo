@@ -23,6 +23,7 @@
 #include "SgInit.h"
 #include "SgPlatform.h"
 
+
 using boost::filesystem::path;
 using std::ostream;
 using std::string;
@@ -166,6 +167,8 @@ int main(int argc, char** argv)
     options.m_useBook = true;
     options.m_allowHandicap = true;
     options.m_quiet = false;
+
+    
 
     if (argc > 0 && argv != 0)
     {
